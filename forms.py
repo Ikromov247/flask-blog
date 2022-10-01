@@ -20,7 +20,6 @@ class RegisterForm(FlaskForm):
 
 class LoginForm(FlaskForm):
     email = StringField("Your email", validators=[DataRequired(), Email()])
-    name = StringField("Your name", validators=[DataRequired(), Length(min=4, max=30)])
     password = PasswordField("Your password", validators=[DataRequired(), Length(min=6)])
     submit = SubmitField("LET ME IN!")
     

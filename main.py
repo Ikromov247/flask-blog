@@ -81,7 +81,7 @@ class Comment(UserMixin, db.Model, Base):
     post_id = Column(Integer, ForeignKey('blog_posts.id'))
     post = relationship("BlogPost", back_populates="comments")
     
-if not os.path.isdir("blog.db"):
+if not os.path.isdir(os.environ.get('DATABASE_URL', "sqlite:///blog.db")):
     db.create_all()
 
 @app.route('/')
